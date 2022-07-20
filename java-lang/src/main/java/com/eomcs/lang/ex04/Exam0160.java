@@ -7,5 +7,7 @@ public class Exam0160 {
   public static void main(String[] args) {
     //모든 변수를 다 초기화시킬 필요는 없다.
     int a1, a2 = 200, a3, a4 = 400, a5;
+    // a1 a2 a3 a4 a5 다 int
+    // 그중에 데이터가 넣어진 것은 a2, a4
   }
 }
