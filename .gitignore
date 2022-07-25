@@ -209,3 +209,5 @@ Debug/
 Release/
 html-exam/
 package-lock.json
+# Ignore Gradle build output directory
+build
