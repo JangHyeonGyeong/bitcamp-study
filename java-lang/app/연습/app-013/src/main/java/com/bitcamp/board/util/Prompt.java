@@ -1,11 +1,11 @@
 /*
  * 키보드 입력을 받는 도구를 구비하고 있다.
  */
-package com.bitcamp.util;
+package com.bitcamp.board;
 
 public class Prompt {
 
-  private static java.util.Scanner keyboardInput = new java.util.Scanner(System.in);
+private static java.util.Scanner keyboardInput = new java.util.Scanner(System.in);
 
   public static int inputInt() {
     String str = keyboardInput.nextLine();
@@ -18,7 +18,7 @@ public class Prompt {
     return Integer.parseInt(str); 
   }
 
-  public static String inputString() {
+  public  static String inputString() {
     return keyboardInput.nextLine();
   }
 

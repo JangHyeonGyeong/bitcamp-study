@@ -1,6 +1,6 @@
 package com.bitcamp.board.dao;
 
-public class ObjectList {
+public class ObjectList99 {
 
 
   private static final int DEFAULT_SIZE = 3;
@@ -13,10 +13,10 @@ public class ObjectList {
   //  private Board[] boards;   // private Member[] members;  오브젝트로  바꿈
 
   //생성자
-  public ObjectList() {
+  public ObjectList99() {
     this.list = new Object[DEFAULT_SIZE];
   }
-  public ObjectList(int initCapacity) {
+  public ObjectList99(int initCapacity) {
     this.list = new Object[initCapacity];
   }
 
