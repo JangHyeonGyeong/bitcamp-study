@@ -38,9 +38,8 @@ public class Test05 {
   }
 
   static int maxFraction(int[] numerators, int[] denominators) {
-    int maxFractionIndex = 0;
+    int maxFractionIndex = 0; // 가장 큰 분수가 0 번째라고 가정하고 시작
     // 이 메서드를 완성하시오!
-
 
 
     return maxFractionIndex;

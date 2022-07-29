@@ -14,13 +14,13 @@ public class Exam0120 {
         break;
 
       try {
-        int v1 = keyScan.nextInt();
+        int v1 = keyScan.nextInt(); // 숫자가 아닌것을 입력하면 nextint에서 리턴하지못하고 바로 캐치문으로감
         int v2 = keyScan.nextInt();
 
         int result = Calculator3.compute(op, v1, v2);
         System.out.println(result);
 
-      } catch (InputMismatchException e) {
+      } catch (InputMismatchException e) { 
         System.out.println("입력 값이 유효하지 않습니다.");
         keyScan.nextLine(); // 입력이 잘못되었을 경우, 나머지 입력을 무시한다.
 
