@@ -14,7 +14,7 @@ public class App {
     welcome();
 
     // 인스턴스를 생성할 때 생성자가 원하는 값을 반드시 줘야 한다.
-    // 주지 않으면 컴파일 오류이다!6
+    // 주지 않으면 컴파일 오류이다!
     //
     BoardHandler boardHandler = new BoardHandler("게시판");
     BoardHandler readingHandler = new BoardHandler("독서록");
@@ -61,8 +61,10 @@ public class App {
           default: System.out.println("메뉴 번호가 옳지 않습니다!");
         } // switch
       } catch (Exception ex) {
-        System.out.println("입력값이 옳지 않습니다.");
+        System.out.println("입력 값이 옳지 않습니다.");
       }
+
+
     } // while
 
     System.out.println("안녕히 가세요!");

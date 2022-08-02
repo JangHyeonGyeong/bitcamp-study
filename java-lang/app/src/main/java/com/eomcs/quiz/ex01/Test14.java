@@ -33,6 +33,8 @@ public class Test14 {
   static int numberReverse(int input) {
     int reversed = 0;
     // 이 메서드를 완성하시오!
+
     return reversed;
   }
 }
+
