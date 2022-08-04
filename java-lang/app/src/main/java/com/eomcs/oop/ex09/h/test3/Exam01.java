@@ -33,6 +33,7 @@ public class Exam01 {
     printer.watermark(watermarkText);
     printer.print(text);
     printer.watermark(watermarkText);
+    System.out.println("========");
   }
 
 }

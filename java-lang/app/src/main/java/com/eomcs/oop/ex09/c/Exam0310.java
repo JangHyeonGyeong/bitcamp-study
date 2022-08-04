@@ -31,6 +31,11 @@ public class Exam0310 {
       System.out.println("ProtocolImpl.rule2()");
     }
 
+    
+    
+    public void rule3() {
+      
+    }
     // 인터페이스들에 같은 시그너처를 갖는 default 메서드가 여러 개 있을 경우,
     // 어떤 메서드를 상속 받느냐에 따라 실행 결과가 달라지기 때문에 
     // 다중 클래스 상속이 불가능 한 것처럼 
@@ -45,7 +50,18 @@ public class Exam0310 {
     //      System.out.println("ProtocolImpl.rule3()");
     //    }
   }
+  void test() {
 
+  ProtocolImpl obj = new ProtocolImpl ();
+  ProtocolA a = obj;
+  ProtocolB b = obj;
+  
+  a.rule1();
+  a.rule3();
+  
+  b.rule3();
+  
+  }
   public static void main(String[] args) {
     ProtocolImpl obj = new ProtocolImpl();
     obj.rule1();

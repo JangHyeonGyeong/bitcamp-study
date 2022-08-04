@@ -22,36 +22,37 @@ interface MyInterface3 {
 
   default void m3() {
     System.out.println("MyInterface3.m3()");
-  };
-}
-
-// 2) 인터페이스 구현
-class MyInterface3Impl implements MyInterface3 {
-
-  // 추상 메서드는 반드시 구현해야 한다.
-  @Override
-  public void m1() {
-    System.out.println("MyInterfaceImpl.m1()");
   }
 
-  // default 메서드는 오버라이딩 해도 되고 안해도 된다.
-  @Override
-  public void m2() {
-    System.out.println("MyInterfaceImpl.m2()");
+
+  // 2) 인터페이스 구현
+  class MyInterface3Impl implements MyInterface3 {
+
+    // 추상 메서드는 반드시 구현해야 한다.
+    @Override
+    public void m1() {
+      System.out.println("MyInterfaceImpl.m1()");
+    }
+
+    // default 메서드는 오버라이딩 해도 되고 안해도 된다.
+    @Override
+    public void m2() {
+      System.out.println("MyInterfaceImpl.m2()");
+    }
+
+    // default 메서드는 오버라이딩 해도 되고 안해도 된다.
+    // => m3() 는 이 클래스에서 오버라이딩을 하지 않았다.
   }
 
-  // default 메서드는 오버라이딩 해도 되고 안해도 된다.
-  // => m3() 는 이 클래스에서 오버라이딩을 하지 않았다.
-}
+  public class Exam03 {
 
-public class Exam03 {
+    public static void main(String[] args) {
+      MyInterface3 obj = new MyInterface3Impl();
 
-  public static void main(String[] args) {
-    MyInterface3 obj = new MyInterface3Impl();
+      obj.m1();
+      obj.m2();
+      obj.m3();
+    }
 
-    obj.m1();
-    obj.m2();
-    obj.m3();
   }
-
 }
