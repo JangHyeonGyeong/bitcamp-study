@@ -1,13 +1,15 @@
 package com.bitcamp.util;
 
-public class LinkedList extends AbstractList {
+import java.lang.reflect.Array;
 
-  private Node head; // 첫 노드의 주소를 저장
-  private Node tail; // 마지막 노드의 주소를 저장
+public class LinkedList<E> extends AbstractList<E> {
+
+  private Node<E> head; // 첫 노드의 주소를 저장
+  private Node<E> tail; // 마지막 노드의 주소를 저장
 
   @Override
-  public void add(Object value) {
-    Node node = new Node(value);
+  public void add(E value) {
+    Node<E> node = new Node<>(value);
 
     size++; // 목록의 크기를 한 개 증가시킨다.
 
@@ -24,7 +26,7 @@ public class LinkedList extends AbstractList {
   }
 
   @Override
-  public Object get(int index) {
+  public E get(int index) {
 
     // 인덱스의 유효 여부 검사
     if (index < 0 || index >= size) {
@@ -32,7 +34,7 @@ public class LinkedList extends AbstractList {
     }
 
     // 인덱스에 해당하는 노드를 찾을 때 head 부터 시작한다. 
-    Node cursor = head;
+    Node<E> cursor = head;
 
     // 지정된 인덱스의 노드 주소를 알아낸다.
     for (int i = 0; i < index; i++) {
@@ -44,7 +46,7 @@ public class LinkedList extends AbstractList {
   }
 
   @Override
-  public Object remove(int index) {
+  public E remove(int index) {
 
     // 인덱스의 유효 여부 검사
     if (index < 0 || index >= size) {
@@ -55,7 +57,7 @@ public class LinkedList extends AbstractList {
     size--;
 
     // 삭제할 값을 임시 보관하여 메서드를 리턴할 때 호출자에게 전달한다.
-    Object deleted;
+    E deleted;
 
     if (head == tail) { // 마지막 남은 노드를 제거할 때
       deleted = head.value; // 노드를 삭제하기 전에 리턴할 수 있도록 값을 임시 보관한다.
@@ -65,7 +67,7 @@ public class LinkedList extends AbstractList {
     }
 
     // 삭제할 노드를 찾기 위해 시작 노드를 head로 설정한다.
-    Node cursor = head;
+    Node<E> cursor = head;
 
     // 지정된 인덱스의 노드 주소를 알아낸다.
     for (int i = 0; i < index; i++) {
@@ -103,7 +105,27 @@ public class LinkedList extends AbstractList {
     Object[] arr = new Object[size];
 
     // 노드를 따라 가면서 값을 꺼내 배열에 담는다.
-    Node cursor = head;
+    Node<E> cursor = head;
+    for (int i = 0; i < size; i++) {
+      arr[i] = cursor.value;
+      cursor = cursor.next;
+    }
+
+    return arr;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public E[] toArray(E[] arr) {
+
+    if (arr.length < size) { 
+      arr = (E[]) Array.newInstance(
+          arr.getClass().getComponentType(), // 레퍼런스 배열의 항목 타입
+          size  /* 배열의 개수*/);
+    }
+
+    // 노드를 따라 가면서 값을 꺼내 배열에 담는다.
+    Node<E> cursor = head;
     for (int i = 0; i < size; i++) {
       arr[i] = cursor.value;
       cursor = cursor.next;
@@ -119,12 +141,12 @@ public class LinkedList extends AbstractList {
   // 다음과 같이 특정 인스턴스에 종속되지 않는 중첩 클래스라면 
   // static nested class(스태틱 중첩클래스)로 정의한다.
   // 
-  private static class Node {
-    Object value;
-    Node prev;
-    Node next;
+  private static class Node<T> {
+    T value;
+    Node<T> prev;
+    Node<T> next;
 
-    public Node(Object v) {
+    public Node(T v) {
       this.value = v;
     }
   }
