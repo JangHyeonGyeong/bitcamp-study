@@ -1,4 +1,4 @@
-package com.eomcs.design_pattern.iterator.after5;
+package com.eomcs.design_pattern.iterator.Test;
 
 public class ArrayList<E> {
 
@@ -95,31 +95,21 @@ public class ArrayList<E> {
     }
     arr = temp;
   }
-
-  public Iterator<E> iterator() {
-
-    // anonymous class 익명 클래스
-    // =>인스턴스를 한 개만 생성하는 클래스를 만들 경우 사용하는 문법이다. 
-    // => 문법 
-    //  인터페이스명 레퍼런스 = new 인터페이스명() {
-    //          인터페이스에 선언된 메서드 구현 
-    //        }
-    Iterator<E> iterator = new Iterator<E>(){
-
-      int index = 0;
-
-      @Override
-      public boolean hasNext() {
-        return index < ArrayList.this.size(); // 밖 클래스의 사이즈를 담음 
-      }
-
-      @Override
-      public E next() {
-        return  ArrayList.this.get(index++);
-      }
-    };
-    return iterator;
-  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
