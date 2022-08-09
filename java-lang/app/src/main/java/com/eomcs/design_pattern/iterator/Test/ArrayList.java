@@ -95,6 +95,39 @@ public class ArrayList<E> {
     }
     arr = temp;
   }
+
+  // Iterator 구현체 제공 
+  public Iterator<E> iterator() {
+
+    //익명클래스
+    // 인스턴스를 한개만 생성하는 클래스를 만들 경우 사용하는 문법 
+    // 문법
+    // => 인터페이스명 레퍼런스 = new 인터페이스명(){
+    //          인터페이스에 선언된 메서드 구현
+    //       }
+
+    Iterator<E> iterator = new Iterator<>() {
+
+      int index = 0;
+
+      @Override
+      public boolean hasNext() {
+        return index < ArrayList.this.size();
+      }
+
+      @Override
+      public E next() {
+        return  ArrayList.this.get(index++);
+      }
+
+    };
+    return iterator;
+
+  }
+
+
+
+
 }
 
 

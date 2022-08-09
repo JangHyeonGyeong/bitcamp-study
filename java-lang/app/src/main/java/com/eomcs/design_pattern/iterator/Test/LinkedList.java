@@ -172,6 +172,23 @@ public class LinkedList<E> {
     }
   }
 
+  //Iterator 구현체 제공
+  public Iterator<E> iterator() {
+
+    return new Iterator<E>() {
+      int index =0;
+
+      @Override
+      public boolean hasNext() {
+        return index < LinkedList.this.size();
+      }
+
+      @Override
+      public E next() {
+        return  LinkedList.this.get(index++);
+      }
+    };
+  }
 }
 
 

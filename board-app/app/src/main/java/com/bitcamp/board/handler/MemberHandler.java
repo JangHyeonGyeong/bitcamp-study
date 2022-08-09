@@ -11,20 +11,33 @@ import com.bitcamp.util.Prompt;
 
 public class MemberHandler extends AbstractHandler {
 
-  private MemberDao memberDao = new MemberDao();
+  private MemberDao memberDao;
 
-  public MemberHandler() {
+  public MemberHandler(String filename) {
     super(new String[] {"목록", "상세보기", "등록", "삭제", "변경"});
+
+    memberDao = new MemberDao(filename);
+
+    try {
+      memberDao.load();
+    } catch (Exception e) {
+      System.out.printf("%s 파일 로딩 중 오류 발생! \n", filename);
+    }
   }
 
   @Override
   public void service(int menuNo) {
-    switch (menuNo) {
-      case 1: this.onList(); break;
-      case 2: this.onDetail(); break;
-      case 3: this.onInput(); break;
-      case 4: this.onDelete(); break;
-      case 5: this.onUpdate(); break;
+
+    try {
+      switch (menuNo) {
+        case 1: this.onList(); break;
+        case 2: this.onDetail(); break;
+        case 3: this.onInput(); break;
+        case 4: this.onDelete(); break;
+        case 5: this.onUpdate(); break;
+      }
+    } catch (Exception e) {
+      throw new RuntimeException(e);
     }
   }
 
@@ -56,7 +69,7 @@ public class MemberHandler extends AbstractHandler {
     System.out.printf("등록일: %tY-%1$tm-%1$td %1$tH:%1$tM\n", date);
   }
 
-  private void onInput() {
+  private void onInput() throws Exception {
     Member member = new Member();
 
     member.name = Prompt.inputString("이름? ");
@@ -65,21 +78,25 @@ public class MemberHandler extends AbstractHandler {
     member.createdDate = System.currentTimeMillis();
 
     this.memberDao.insert(member);
+    this.memberDao.save();
 
-    System.out.println("회워을 등록했습니다.");
+
+    System.out.println("회원을 등록했습니다.");
   }
 
-  private void onDelete() {
+  private void onDelete() throws Exception {
     String email = Prompt.inputString("삭제할 회원 이메일? ");
 
     if (memberDao.delete(email)) {
+      this.memberDao.save();
+
       System.out.println("삭제하였습니다.");
     } else {
       System.out.println("해당 이메일의 회원이 없습니다!");
     }
   }
 
-  private void onUpdate() {
+  private void onUpdate() throws Exception {
     String email = Prompt.inputString("변경할 회원 이메일? ");
 
     Member member = this.memberDao.findByEmail(email);
@@ -96,6 +113,8 @@ public class MemberHandler extends AbstractHandler {
     if (input.equals("y")) {
       member.name = newName;
       member.email = newEmail;
+      this.memberDao.save();
+
       System.out.println("변경했습니다.");
     } else {
       System.out.println("변경 취소했습니다.");

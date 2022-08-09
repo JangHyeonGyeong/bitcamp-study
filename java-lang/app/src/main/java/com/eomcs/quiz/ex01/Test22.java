@@ -51,6 +51,6 @@ public class Test22 {
 
   static String getMonthName(int mo) {
     // 이 메서드를 완성하시오!
-    return "";
+
   }
 }

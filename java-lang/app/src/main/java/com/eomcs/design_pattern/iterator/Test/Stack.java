@@ -38,6 +38,26 @@ public class Stack<E> {
   public int size() {
     return this.size;
   }
+
+  public Iterator<E> iterator(){
+
+
+
+    return new Iterator<E> (){
+
+      @Override
+      public boolean hasNext() {
+        return !Stack.this.empty();
+      }
+      @Override
+      public E next() {
+        return  Stack.this.pop();
+      }
+
+    }    ;
+  }
+
+
 }
 
 
