@@ -26,9 +26,8 @@ public class Test23 {
     System.out.println(sumUpDigits("2 apples, 12 oranges") == 5);
   }
 
-  static int sumUpDigits(String inputString) {
-    int answer = 0;
-    // 이 메서드를 완성하시오!
-    return answer;
-  }
+
+
+  return answer;
+}
 }

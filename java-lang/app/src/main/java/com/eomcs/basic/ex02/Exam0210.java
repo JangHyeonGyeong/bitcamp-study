@@ -15,6 +15,7 @@ public class Exam0210 {
     Boolean bool = new Boolean(true);           // ==> boolean
     Character c = new Character((char)0x41);    // ==> char
 
+
     // 이렇게 primitive data type에 대응하여 만든 클래스를
     // primitive data를 포장하는 객체라고 해서
     // "랩퍼(wrapper) 클래스"라 부른다.
@@ -29,7 +30,6 @@ public class Exam0210 {
     // deprecated(비난받는, 유지보수가 중단되어, 사용이 권장되지 않는)?
     // - 사용하지 않는 것이 좋다고 결정되었고, 가까운 장래에 제거될 것이라는 의미.
     //
-
 
     // Wrapper 클래스의 인스턴스를 생성할 때는 생성자 대신 클래스 메서드를 사용하라.
     Byte b2 = Byte.valueOf((byte)100);

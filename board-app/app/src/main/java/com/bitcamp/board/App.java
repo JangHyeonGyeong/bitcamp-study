@@ -17,28 +17,26 @@ public class App {
 
   public static void main(String[] args) {
     try {
-
       welcome();
 
       // 핸들러를 담을 레퍼런스 배열을 준비한다.
       Handler[] handlers = new Handler[] {
-          new BoardHandler("board.data"), // 게시판
-          new BoardHandler("reading.data"), // 독서록
-          new BoardHandler("visit.data"), // 방명록
-          new BoardHandler("notice.data"), // 공지사항
-          new BoardHandler("daily.data"), // 일기장
-          new MemberHandler("member.data") // 회원
+          new BoardHandler("board.csv"), // 게시판
+          new BoardHandler("reading.csv"), // 독서록
+          new BoardHandler("visit.csv"), // 방명록
+          new BoardHandler("notice.csv"), // 공지사항
+          new BoardHandler("daily.csv"), // 일기장
+          new MemberHandler("member.csv") // 회원
       };
 
       // "메인" 메뉴의 이름을 스택에 등록한다.
       breadcrumbMenu.push("메인");
 
       // 메뉴명을 저장할 배열을 준비한다.
-      String[] menus = {"게시판", "독서록", "방명록", "공지사항", "일기장", "회원"};
+      String[] menus = {"게시판", "독서록", "방 명록", "공지사항", "일기장", "회원"};
 
       loop: while (true) {
 
-        // 메인 메뉴 출력
         printTitle();
         printMenus(menus);
         System.out.println();
@@ -98,7 +96,6 @@ public class App {
     }
   }
 
-
   protected static void printTitle() {
     StringBuilder builder = new StringBuilder();
     for (String title : App.breadcrumbMenu) {
@@ -107,9 +104,8 @@ public class App {
       }
       builder.append(title);
     }
-    System.out.printf("%s:\n",builder.toString());
+    System.out.printf("%s:\n", builder.toString());
   }
-
 }
 
 

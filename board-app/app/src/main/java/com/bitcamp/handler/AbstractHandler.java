@@ -43,7 +43,7 @@ public abstract class AbstractHandler implements Handler {
       }
       builder.append(title);
     }
-    System.out.printf("%s:\n",builder.toString());
+    System.out.printf("%s:\n", builder.toString());
   }
 
   @Override

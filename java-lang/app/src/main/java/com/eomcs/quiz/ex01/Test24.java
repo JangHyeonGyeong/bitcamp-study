@@ -13,7 +13,7 @@ package com.eomcs.quiz.ex01;
 // 
 //
 /*
-Given integers L and R, 
+ Given integers L and R, 
 find the number of different pairs of integers A and B 
 such that L <= A <= R and L <= B <= R and A^3 = B^2.
 
@@ -44,6 +44,17 @@ public class Test24 {
   static int equationSolutions(int L, int R) {
     int result = 0;
     // 이 메서드를 완성하시오!
+
+    for(int a = L; a<=R ; a++) {
+      for(int b = a; b < R; b++) {
+        if(a* a* a == b* b* b) {
+          System.out.printf("(%d%d)\n", a, b);
+          result++;
+        }
+      }
+    }
+
+
     return result;
   }
 }

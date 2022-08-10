@@ -15,19 +15,18 @@ public class MemberHandler extends AbstractHandler {
 
   public MemberHandler(String filename) {
     super(new String[] {"목록", "상세보기", "등록", "삭제", "변경"});
-
     memberDao = new MemberDao(filename);
 
     try {
       memberDao.load();
     } catch (Exception e) {
-      System.out.printf("%s 파일 로딩 중 오류 발생! \n", filename);
+      System.out.printf("%s 파일 로딩 중 오류 발생!\n", filename);
+      //  e.printStackTrace();
     }
   }
 
   @Override
   public void service(int menuNo) {
-
     try {
       switch (menuNo) {
         case 1: this.onList(); break;
@@ -78,18 +77,16 @@ public class MemberHandler extends AbstractHandler {
     member.createdDate = System.currentTimeMillis();
 
     this.memberDao.insert(member);
-    this.memberDao.save();
+    memberDao.save();
 
-
-    System.out.println("회원을 등록했습니다.");
+    System.out.println("회워을 등록했습니다.");
   }
 
   private void onDelete() throws Exception {
     String email = Prompt.inputString("삭제할 회원 이메일? ");
 
     if (memberDao.delete(email)) {
-      this.memberDao.save();
-
+      memberDao.save();
       System.out.println("삭제하였습니다.");
     } else {
       System.out.println("해당 이메일의 회원이 없습니다!");
@@ -113,8 +110,7 @@ public class MemberHandler extends AbstractHandler {
     if (input.equals("y")) {
       member.name = newName;
       member.email = newEmail;
-      this.memberDao.save();
-
+      memberDao.save();
       System.out.println("변경했습니다.");
     } else {
       System.out.println("변경 취소했습니다.");
