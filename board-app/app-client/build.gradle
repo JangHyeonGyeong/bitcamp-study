@@ -40,7 +40,7 @@ tasks.withType(JavaCompile) {
 // eclipse IDE에서 사용할 프로젝트 정보 설정하기
 eclipse {
     project {
-        name = "board-app" 
+        name = "board-app-client" 
         // 프로젝트 이름을 지정하지 않으면 build.gradle 파일이 있는 폴더 이름을 프로젝트 이름을 사용 한다 
     }
     jdt {

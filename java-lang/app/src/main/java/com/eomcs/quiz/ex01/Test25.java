@@ -37,6 +37,8 @@ public class Test25 {
 
   static int smallestNumber(int n) {
     // 이 메서드를 완성하시오!
-    return 0;
+
+
+    return 0 ;
   }
 }
