@@ -15,6 +15,9 @@ public class MemberHandler extends AbstractHandler {
 
   public MemberHandler(String filename) {
     super(new String[] {"목록", "상세보기", "등록", "삭제", "변경"});
+
+
+
     memberDao = new MemberDao(filename);
 
     try {

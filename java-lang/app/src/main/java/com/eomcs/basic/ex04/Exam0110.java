@@ -44,7 +44,7 @@ public class Exam0110 {
     System.out.println();
   }
 }
-
+//
 // ArrayList vs LinkedList
 // 1) 메모리
 // ArrayList

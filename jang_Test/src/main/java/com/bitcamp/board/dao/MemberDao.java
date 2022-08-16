@@ -1,5 +1,9 @@
 package main.java.com.bitcamp.board.dao;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,9 +14,53 @@ public class MemberDao {
 
   List<Member> list = new LinkedList<Member>();
 
+
+  String filename;
+
+  public MemberDao(String filename) {
+    this.filename = filename;
+  }
+
+  public void load() throws Exception {
+    try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
+      int size = in.readInt();
+      for (int i = 0; i < size; i++) {
+        Member member = (Member) in.readObject();
+        list.add(member);
+      }
+    } // try () ==> try 블록을 벗어나기 전에 in.close()가 자동으로 실행된다.
+  }
+
+  public void save() throws Exception {
+    try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
+      out.writeInt(list.size());
+      for (Member member : list) {
+        out.writeObject(member);
+      }
+    } // try () ==> try 블록을 벗어나기 전에 out.close()가 자동으로 실행된다.
+  }
+
+
   public void insert(Member member) {
     list.add(member);
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public Member findByEmail(String email) {
     for (int i = 0; i < list.size(); i++) {
