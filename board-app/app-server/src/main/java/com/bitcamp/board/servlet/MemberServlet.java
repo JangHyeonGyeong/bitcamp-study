@@ -1,27 +1,26 @@
 /*
- * board 데이터 처리
+ * 회원 메뉴 처리 클래스
  */
 package com.bitcamp.board.servlet;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import com.bitcamp.board.dao.BoardDao;
-import com.bitcamp.board.domain.Board;
+import com.bitcamp.board.dao.MemberDao;
+import com.bitcamp.board.domain.Member;
 import com.bitcamp.servlet.Servlet;
 import com.google.gson.Gson;
 
-public class BoardServlet implements Servlet {
+public class MemberServlet implements Servlet {
 
-  // 게시글 목록을 관리할 객체 준비
-  private BoardDao boardDao;
+  private MemberDao memberDao;
   private String filename;
 
-  public BoardServlet(String dataName) {
+  public MemberServlet(String dataName) {
     filename = dataName + ".json";
-    boardDao = new BoardDao(filename);
+    memberDao = new MemberDao(filename);
 
     try {
-      boardDao.load();
+      memberDao.load();
     } catch (Exception e) {
       System.out.printf("%s 파일 로딩 중 오류 발생!\n", filename);
       e.printStackTrace();
@@ -33,47 +32,47 @@ public class BoardServlet implements Servlet {
     try {
 
       String command = in.readUTF();
-      Board board = null;
-      int no = 0;
+      Member member = null;
+      String email = null;
       String json = null;
 
       switch (command) {
         case "findAll":
-          Board[] boards = boardDao.findAll();
+          Member[] members = memberDao.findAll();
           out.writeUTF(SUCCESS);
-          out.writeUTF(new Gson().toJson(boards));
+          out.writeUTF(new Gson().toJson(members));
           break;
-        case "findByNo":
-          no = in.readInt();
-          board = boardDao.findByNo(no);
-          if (board != null) {
+        case "findByEmail":
+          email = in.readUTF();
+          member = memberDao.findByEmail(email);
+          if (member != null) {
             out.writeUTF(SUCCESS);
-            out.writeUTF(new Gson().toJson(board));
+            out.writeUTF(new Gson().toJson(member));
           } else {
             out.writeUTF(FAIL);
           }
           break;
         case "insert": 
           json = in.readUTF();
-          board = new Gson().fromJson(json, Board.class);
-          boardDao.insert(board);
-          boardDao.save();
+          member = new Gson().fromJson(json, Member.class);
+          memberDao.insert(member);
+          memberDao.save();
           out.writeUTF(SUCCESS);
           break;
-        case "update": 
+        case "update":  // 멤버DAo 업데이트추가
           json = in.readUTF();
-          board = new Gson().fromJson(json, Board.class);
-          if (boardDao.update(board)) {
-            boardDao.save();
+          member = new Gson().fromJson(json, Member.class);
+          if (memberDao.update(member)) {
+            memberDao.save();
             out.writeUTF(SUCCESS);
           } else {
             out.writeUTF(FAIL);
           }
           break;
         case "delete": 
-          no = in.readInt();
-          if (boardDao.delete(no)) {
-            boardDao.save();
+          email = in.readUTF();
+          if (memberDao.delete(email)) {
+            memberDao.save();
             out.writeUTF(SUCCESS);
           } else {
             out.writeUTF(FAIL);
@@ -85,8 +84,10 @@ public class BoardServlet implements Servlet {
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
+
   }
 }
+
 
 
 

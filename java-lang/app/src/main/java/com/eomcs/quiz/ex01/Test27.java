@@ -40,6 +40,10 @@ public class Test27 {
 
   static int evenNumbersBeforeFixed(int[] sequence, int fixedElement) {
     // 이 메서드를 완성하시오!
+
+
+
+
     return -1;
   }
 }

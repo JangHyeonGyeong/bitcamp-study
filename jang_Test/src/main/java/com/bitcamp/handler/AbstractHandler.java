@@ -1,7 +1,7 @@
-package main.java.com.bitcamp.handler;
+package com.bitcamp.handler;
 
-import main.java.com.bitcamp.board.App;
-import main.java.com.bitcamp.util.Prompt;
+import com.bitcamp.board.App;
+import com.bitcamp.util.Prompt;
 
 // Handler 규격에 맞춰 서브 클래스에게 물려줄 공통 필드나 메서드를 구현한다.
 // 
@@ -36,7 +36,14 @@ public abstract class AbstractHandler implements Handler {
   }
 
   protected static void printTitle() {
-    System.out.printf("%s:\n", App.breadcrumbMenu);
+    StringBuilder builder = new StringBuilder();
+    for (String title : App.breadcrumbMenu) {
+      if (!builder.isEmpty()) {
+        builder.append(" > ");
+      }
+      builder.append(title);
+    }
+    System.out.printf("%s:\n", builder.toString());
   }
 
   @Override

@@ -1,7 +1,7 @@
 /*
  * 키보드 입력을 받는 도구를 구비하고 있다.
  */
-package main.java.com.bitcamp.util;
+package com.bitcamp.util;
 
 public class Prompt {
 

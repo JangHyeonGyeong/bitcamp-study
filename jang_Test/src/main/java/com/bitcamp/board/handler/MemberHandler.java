@@ -1,13 +1,13 @@
 /*
  * 회원 메뉴 처리 클래스
  */
-package main.java.com.bitcamp.board.handler;
+package com.bitcamp.board.handler;
 
 import java.util.Date;
-import main.java.com.bitcamp.board.dao.MemberDao;
-import main.java.com.bitcamp.board.domain.Member;
-import main.java.com.bitcamp.handler.AbstractHandler;
-import main.java.com.bitcamp.util.Prompt;
+import com.bitcamp.board.dao.MemberDao;
+import com.bitcamp.board.domain.Member;
+import com.bitcamp.handler.AbstractHandler;
+import com.bitcamp.util.Prompt;
 
 public class MemberHandler extends AbstractHandler {
 
@@ -15,28 +15,28 @@ public class MemberHandler extends AbstractHandler {
 
   public MemberHandler(String filename) {
     super(new String[] {"목록", "상세보기", "등록", "삭제", "변경"});
-
     memberDao = new MemberDao(filename);
 
     try {
       memberDao.load();
     } catch (Exception e) {
-      System.out.printf("%s 파일 로딩 중 오류 발생! \n" ,filename);  
+      System.out.printf("%s 파일 로딩 중 오류 발생!\n", filename);
+      //      e.printStackTrace();
     }
-
   }
 
   @Override
   public void service(int menuNo) {
-    try { switch (menuNo) {
-      case 1: this.onList(); break;
-      case 2: this.onDetail(); break;
-      case 3: this.onInput(); break;
-      case 4: this.onDelete(); break;
-      case 5: this.onUpdate(); break;
-    }
+    try {
+      switch (menuNo) {
+        case 1: this.onList(); break;
+        case 2: this.onDetail(); break;
+        case 3: this.onInput(); break;
+        case 4: this.onDelete(); break;
+        case 5: this.onUpdate(); break;
+      }
     } catch (Exception e) {
-      throw new RuntimeException(e) ;
+      throw new RuntimeException(e);
     }
   }
 
@@ -78,10 +78,11 @@ public class MemberHandler extends AbstractHandler {
 
     this.memberDao.insert(member);
     memberDao.save();
+
     System.out.println("회워을 등록했습니다.");
   }
 
-  private void onDelete()throws Exception {
+  private void onDelete() throws Exception {
     String email = Prompt.inputString("삭제할 회원 이메일? ");
 
     if (memberDao.delete(email)) {

@@ -11,14 +11,15 @@ public class Member implements Serializable {
   public String password;
   public long createdDate;
 
-
-  public static Member create(String csv) { // 인스턴스만들거라서 스테틱
-    // 객체로 사용했음!
-    String [] values = csv.split(",");
+  //GoF의 Factory Method 패턴
+  // - 객체 생성 과정이 복잡할 때 별도의 메서드로 캡슐화 한다.
+  // 
+  public static Member create(String csv) {
+    String[] values = csv.split(",");
 
     Member member = new Member();
     member.no = Integer.parseInt(values[0]);
-    member.name= values[1];
+    member.name = values[1];
     member.email = values[2];
     member.password = values[3];
     member.createdDate = Long.parseLong(values[4]);
@@ -26,9 +27,8 @@ public class Member implements Serializable {
     return member;
   }
 
-  //인스턴스 필드를 사용할것 그럼 인스턴스필드로 만들어야함
-  //=> GRASP 패텬의  information Expert 패턴
-  // 정보생성은 그 데이터를 갖고있는 전문가에게 맡긴다 
+  // GRASP 패턴의 Information Expert 패턴
+  // => 정보 생성은 그 데이터를 갖고 있는 전문가에게 맡긴다.
   public String toCsv() {
     return String.format("%d,%s,%s,%s,%d",
         this.no,
@@ -37,6 +37,4 @@ public class Member implements Serializable {
         this.password,
         this.createdDate);
   }
-
-
 }

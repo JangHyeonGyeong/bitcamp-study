@@ -6,13 +6,14 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Httpserver {
-
+public class HttpServer {
   public static void main(String[] args) throws Exception {
+
     try (ServerSocket ss = new ServerSocket(80);) {
       System.out.println("서버 시작!!");
 
       while (true) {
+
         try (
             Socket socket = ss.accept();
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -20,36 +21,30 @@ public class Httpserver {
             ) {
           System.out.println("클라이언트가 연결됨!");
 
-          System.out.println("-----------------------------------");
-          String line;
-
           // 클라이언트가 보낸 데이터를 읽는다.
+          System.out.println("-------------------------------");
+          String line;
           while ((line = in.readLine()) != null) {
-            if (line.length() == 0) { // 클라이언트가 빈줄을 보내면, 읽기를 끝낸다.
+            if (line.length() == 0) { // 클라이언트가 빈 줄을 보내면, 읽기를 끝낸다.
               break;
             }
             System.out.println(line);
           }
 
           // 클라이언트에게 응답한다.
-          out.println("Http/1.1 200 OK");
+          out.println("HTTP/1.1 200 OK");
           out.println("Content-Type: text/html;charset=UTF-8");
-          out.println(); // 본격적으로 콘텐트를 보낸다고 알린다.
+          out.println(); // 이제부터 본격적으로 콘텐트를 보내겠다고 알린다.
           out.println("<html>");
           out.println("<head>");
           out.println("<title>Hello!</title>");
           out.println("</head>");
-          out.println("<boby>");
-
-
-          out.println("<h1>안녕하세요</h1>");
-          out.println("<h2>안녕</h2>");
-
-          out.println("</boby>");
-          out.println("</boby>");
+          out.println("<body>");
+          out.println("<h1>안녕하세요!</h1>");
+          out.println("</body>");
           out.println("</html>");
         } // try
       } // while
-    } // t 
-  }//main
-} // class
+    } // try
+  } // main()
+}

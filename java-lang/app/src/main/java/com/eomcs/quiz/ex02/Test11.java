@@ -35,6 +35,7 @@ public class Test11 {
 
   static boolean rightTriangle(int[] sides) {
     // 이 메서드를 완성하시오!
+
     return false;
   }
 }
