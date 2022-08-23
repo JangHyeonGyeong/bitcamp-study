@@ -45,7 +45,7 @@ public class Receiver {
     System.out.printf("상대편> %s\n", str);
 
     // 5) 상대편으로 문자열을 한 줄 보낸다.
-    out.println("나는 엄진영입니다. 반갑습니다!");
+    out.println("나는 장현경입니다. 반갑습니다!");
 
     // 6) 항상 입출력 도구는 사용 후 닫아야 한다.
     in.close();
