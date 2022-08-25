@@ -8,7 +8,7 @@ int main() {
   
   int j = 0;
   for (j = 0; j < 100; j++) {
-    printf("==> %d\n", j);
+    printf("-----> %d\n", j);
   }
   return 0;
 }
