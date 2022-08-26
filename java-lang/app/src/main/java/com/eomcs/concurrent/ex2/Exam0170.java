@@ -17,7 +17,6 @@ public class Exam0170 {
     }
   }
 }
-
 // JVM의 스레드 계층도:
 // system(TG)
 // => Reference Handler(T)

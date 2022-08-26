@@ -9,11 +9,11 @@ import com.bitcamp.board.servlet.BoardServlet;
 import com.bitcamp.board.servlet.MemberServlet;
 import com.bitcamp.servlet.Servlet;
 
-public class ServerApp {
-
+public class ServerApp05 {
   public static void main(String[] args) {
-    //클라이언트 요청을 처리할 객체 준비
-    Hashtable<String, Servlet> servletMap = new Hashtable<>();
+
+    // 클라이언트 요청을 처리할 객체 준비
+    Hashtable<String,Servlet> servletMap = new Hashtable<>();
     servletMap.put("board", new BoardServlet("board"));
     servletMap.put("reading", new BoardServlet("reading"));
     servletMap.put("visit", new BoardServlet("visit"));
@@ -28,22 +28,21 @@ public class ServerApp {
 
       System.out.println("서버 소켓 준비 완료!");
 
-      while(true){
-        //람다 문법에서는 인스턴스 필드는 처리할 수 없다.
-        // 따라서 다시 로컬 변수로 전환한다.
 
+
+      while (true) {
         Socket socket = serverSocket.accept();
 
-        new Thread(() -> {
-          try (Socket socket2 = socket;
+        new Thread( () -> {
+          try (
+              Socket socket2 = socket;
               DataInputStream in = new DataInputStream(socket.getInputStream());
               DataOutputStream out = new DataOutputStream(socket.getOutputStream());) {
 
             System.out.println("클라이언트와 연결 되었음!");
 
             String dataName = in.readUTF();
-            // 로컬 클래스는 바깥 메서드의 로컬 변수를 자신의 멤버인것 처럼 사용할 수 있다
-            // 어케? 컴파일러가 그것이 가능하도록 필드와 생성자에 파라미터를 자동으로 추가한다
+
             Servlet servlet = servletMap.get(dataName);
             if(servlet != null) { // 찾앗다는것
               servlet.service(in, out);
@@ -56,17 +55,19 @@ public class ServerApp {
           }catch (Exception e) {
             System.out.println("클라이언트 요청 처리 중 오류 발생");
             e.printStackTrace();
-          }
-        } ).start(); 
-      }
 
+          }
+        }
+
+            ).start();
+
+      }
     } catch (Exception e) {
       e.printStackTrace();
     } // 바깥 쪽 try 
 
     System.out.println("서버 종료!");
   }
-
 
 
 }

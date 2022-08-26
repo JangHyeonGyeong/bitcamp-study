@@ -18,7 +18,7 @@ public class Exam0110 {
       }
       delay();
       values[size] = value;
-      delay();
+      //    delay();
       size = size + 1;
       delay();
     }
