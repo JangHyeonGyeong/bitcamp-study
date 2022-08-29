@@ -20,9 +20,6 @@ public class ServerApp06 {
     servletMap.put("daily", new BoardServlet("daily"));
     servletMap.put("member", new MemberServlet("member"));
 
-
-
-
     System.out.println("[게시글 데이터 관리 서버]");
 
     try (ServerSocket serverSocket = new ServerSocket(8888);) {
@@ -60,7 +57,6 @@ public class ServerApp06 {
         }
 
             ).start();
-
 
       }
     } catch (Exception e) {
