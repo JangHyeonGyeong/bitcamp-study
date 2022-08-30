@@ -21,6 +21,7 @@ public class rocrspaper {
         break;
       }
 
+
       // 승부
 
       Random random = new Random();
