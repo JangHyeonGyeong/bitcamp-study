@@ -40,9 +40,8 @@ public class Exam0210 {
       stmt.setString(2, contents);
 
       // => 이미 SQL 을 준비한 상태이기 때문에 실행할 때는 SQL를 줄 필요가 없다.
-      // => 서버에 SQL을 전달할 때 
-      //    SQL과 값을 분리해서 보내고 서버에서 분리된 값을 따로 처리할 것이기 때문에
-      //    SQL 삽입 공격이 불가능한다.
+      // => setXXX()로 설정된 값은 단순한 텍스트로 처리한 후 
+      //    SQL을 실행 할 때 파라미터로 전달 되기 때문에 SQL 삽입 공격이 불가능 하다.
       int count = stmt.executeUpdate();
 
       System.out.println(count + " 개를 입력하였습니다.");
