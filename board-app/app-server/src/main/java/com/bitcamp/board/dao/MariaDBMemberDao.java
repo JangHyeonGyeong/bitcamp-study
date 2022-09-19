@@ -5,9 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import com.bitcamp.Servlet.annotation.Repository;
 import com.bitcamp.board.domain.Member;
 
-// 
+@Repository("memberDao")
 public class MariaDBMemberDao implements MemberDao {
   Connection con;
 
@@ -72,7 +73,7 @@ public class MariaDBMemberDao implements MemberDao {
   @Override
   public int delete(int no) throws Exception {
     try(PreparedStatement pstmt1 = con.prepareStatement("delete from app_board where mno=?");
-        PreparedStatement pstmt2 = con.prepareStatement("delete from app_member2 where mno=?")) {
+        PreparedStatement pstmt2 = con.prepareStatement("delete from app_member where mno=?")) {
 
       //커넥션 객체를 수동 커밋 상태로 설정한다
       con.setAutoCommit(false);
