@@ -5,10 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import com.bitcamp.Servlet.annotation.Repository;
 import com.bitcamp.board.domain.Member;
 
-@Repository("memberDao")
 public class MariaDBMemberDao implements MemberDao {
   Connection con;
 
