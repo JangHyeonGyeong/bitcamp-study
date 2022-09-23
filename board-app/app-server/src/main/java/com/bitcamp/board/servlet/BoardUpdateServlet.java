@@ -21,7 +21,13 @@ import com.bitcamp.board.domain.Board;
 public class BoardUpdateServlet extends HttpServlet{
 
   private static final long serialVersionUID = 1L;
-  private BoardDao boardDao;
+
+  BoardDao boardDao ;
+  @Override
+  public void init() throws ServletException{
+    boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
+  }
+
 
   public BoardUpdateServlet() throws Exception {
     Class.forName("org.mariadb.jdbc.Driver");

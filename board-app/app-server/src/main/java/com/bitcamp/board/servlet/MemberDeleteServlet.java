@@ -20,8 +20,11 @@ import com.bitcamp.board.dao.MemberDao;
 public class MemberDeleteServlet extends HttpServlet{
 
   private static final long serialVersionUID = 1L;
-  private MemberDao memberDao;
-
+  MemberDao memberDao ;
+  @Override
+  public void init() throws ServletException{
+    memberDao = (MemberDao) this.getServletContext().getAttribute("memberDao");
+  }
   public MemberDeleteServlet() throws Exception{
     Class.forName("org.mariadb.jdbc.Driver");
 
