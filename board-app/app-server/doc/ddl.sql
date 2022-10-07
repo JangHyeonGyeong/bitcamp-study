@@ -4,6 +4,9 @@ DROP TABLE IF EXISTS app_board RESTRICT;
 -- 회원
 DROP TABLE IF EXISTS app_member RESTRICT;
 
+-- 첨부파일
+DROP TABLE IF EXISTS app_board_file RESTRICT;
+
 -- 게시글
 CREATE TABLE app_board (
   bno    INTEGER      NOT NULL COMMENT '게시글번호', -- 게시글번호
@@ -58,6 +61,24 @@ CREATE INDEX IX_app_member
 ALTER TABLE app_member
   MODIFY COLUMN mno INTEGER NOT NULL AUTO_INCREMENT COMMENT '회원번호';
 
+-- 첨부파일
+CREATE TABLE app_board_file (
+  bfno     INTEGER      NOT NULL COMMENT '첨부파일번호', -- 첨부파일번호
+  filepath VARCHAR(255) NOT NULL COMMENT '파일경로', -- 파일경로
+  bno      INTEGER      NOT NULL COMMENT '게시글번호' -- 게시글번호
+)
+COMMENT '첨부파일';
+
+-- 첨부파일
+ALTER TABLE app_board_file
+  ADD CONSTRAINT PK_app_board_file -- 첨부파일 기본키
+    PRIMARY KEY (
+      bfno -- 첨부파일번호
+    );
+
+ALTER TABLE app_board_file
+  MODIFY COLUMN bfno INTEGER NOT NULL AUTO_INCREMENT COMMENT '첨부파일번호';
+
 -- 게시글
 ALTER TABLE app_board
   ADD CONSTRAINT FK_app_member_TO_app_board -- 회원 -> 게시글
@@ -66,4 +87,14 @@ ALTER TABLE app_board
     )
     REFERENCES app_member ( -- 회원
       mno -- 회원번호
+    );
+
+-- 첨부파일
+ALTER TABLE app_board_file
+  ADD CONSTRAINT FK_app_board_TO_app_board_file -- 게시글 -> 첨부파일
+    FOREIGN KEY (
+      bno -- 게시글번호
+    )
+    REFERENCES app_board ( -- 게시글
+      bno -- 게시글번호
     );

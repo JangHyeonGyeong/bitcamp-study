@@ -18,6 +18,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.9.1'
     implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.7'
     implementation 'org.reflections:reflections:0.10.2'
+    implementation 'javax.servlet:jstl:1.2'
+ 
+   // implementation 'commons-fileupload:commons-fileupload:1.4'
+ 
  
    //웹 애플리케이션에서 사용하는 자바 표준 웹 라이브러리
    // - 단 개발 할 때만 사용한다.

@@ -8,11 +8,11 @@
 </head>
 <body>
 <h1>계산기</h1>
-100 + 200 = <%= plus(100, 200) %>
+100 + 200 = <%=plus(100, 200)%>
 </body>
 </html>
 <%!
-int plus(int a, int b){
-return a + b;
+int plus(int a, int b) {
+  return a + b;
 }
 %>
