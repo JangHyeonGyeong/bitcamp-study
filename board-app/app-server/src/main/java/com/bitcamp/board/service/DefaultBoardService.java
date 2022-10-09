@@ -8,10 +8,11 @@ import com.bitcamp.transaction.TransactionManager;
 import com.bitcamp.transaction.TransactionStatus;
 
 public class DefaultBoardService implements BoardService {
-  TransactionManager txManager;
+
+  TransactionManager txManager; 
   BoardDao boardDao;
 
-  public DefaultBoardService(BoardDao boardDao,  TransactionManager txManager) {
+  public DefaultBoardService(BoardDao boardDao, TransactionManager txManager) {
     this.boardDao = boardDao;
     this.txManager = txManager;
   }
@@ -19,7 +20,6 @@ public class DefaultBoardService implements BoardService {
   @Override
   public void add(Board board) throws Exception {
     TransactionStatus status = txManager.getTransaction();
-
     try {
       // 1) 게시글 등록
       if (boardDao.insert(board) == 0) {
@@ -33,7 +33,7 @@ public class DefaultBoardService implements BoardService {
     } catch (Exception e) {
       txManager.rollback(status);
       throw e;
-    } 
+    }
   }
 
   @Override
@@ -54,7 +54,7 @@ public class DefaultBoardService implements BoardService {
     } catch (Exception e) {
       txManager.rollback(status);
       throw e;
-    } 
+    }
   }
 
   @Override
@@ -70,7 +70,6 @@ public class DefaultBoardService implements BoardService {
   @Override
   public boolean delete(int no) throws Exception {
     TransactionStatus status = txManager.getTransaction();
-
     try {
       // 1) 첨부파일 삭제
       boardDao.deleteFiles(no);
@@ -79,7 +78,6 @@ public class DefaultBoardService implements BoardService {
       boolean result = boardDao.delete(no) > 0;
 
       txManager.commit(status);
-
       return result;
 
     } catch (Exception e) {
