@@ -7,8 +7,18 @@
 <head>
 <meta charset="UTF-8">
 <title>bitcamp</title>
+
+
+
+
 </head>
 <body>
+<!-- As a link -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+</nav>
+
+
 <h1>환영합니다!-JSP</h1>
 <p>비트캠프 게시판 관리 시스템 프로젝트입니다.</p>
 <ul>

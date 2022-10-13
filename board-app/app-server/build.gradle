@@ -22,13 +22,25 @@ dependencies {
  
    // implementation 'commons-fileupload:commons-fileupload:1.4'
  
+    //spring WebMVC 프레임워크
+    implementation 'org.springframework:spring-webmvc:5.3.23'
+ 
  
    //웹 애플리케이션에서 사용하는 자바 표준 웹 라이브러리
    // - 단 개발 할 때만 사용한다.
    // - 배포할 필요는 없다 왜? 톰캣 서버에 이미 존재한다.
     providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
  
-  //  implementation project(':app-common')
+    // Spring IoC 컨테이너 라이브러리 
+    // - spring WebMVC를 추가하면 자동으로 포함된다
+    // implementation 'org.springframework:spring-context:5.3.23'
+ 
+   // Spring JDBC 관련 라이브러리
+    implementation 'org.springframework:spring-jdbc:5.3.23'
+ 
+   // 프레임워크나 라이브러리 등에서 출력하는 로그를 다루는 라이브러리.
+    implementation 'org.apache.logging.log4j:log4j-core:2.18.0' 
+      //  implementation project(':app-common')
 }
 
 application {
