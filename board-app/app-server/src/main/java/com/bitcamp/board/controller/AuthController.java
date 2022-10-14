@@ -10,36 +10,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.bitcamp.board.domain.Member;
 import com.bitcamp.board.service.MemberService;
-@Controller 
-//페이지 컨트롤러에 붙이는 애노테이션 
 
+@Controller 
 @RequestMapping("/auth/")
-public class AuthController  {
+public class AuthController {
 
   MemberService memberService;
   public AuthController(MemberService memberService) {
     this.memberService = memberService;
   }
 
-  // InternalResourceViewResolver 설정 전 
-  //  @GetMapping("form")
-  //  public View form() throws Exception {
-  //    return new JstlView("/auth/form.jsp");
-  //  }
-
-  // InternalResourceViewResolver 설정 후
-
-  @GetMapping("form")
+  @GetMapping("form") 
   public String form() throws Exception {
     return "auth/form";
   }
 
-  @PostMapping("login")
+  @PostMapping("login") 
   public ModelAndView login(
-      String email,
+      String email, 
       String password, 
-      String saveEmail,
-      HttpServletResponse response,// 쿠키 설정
+      String saveEmail, 
+      HttpServletResponse response,
       HttpSession session) throws Exception {
 
     Member member = memberService.get(email, password);
@@ -61,12 +52,10 @@ public class AuthController  {
     return mv;
   }
 
-
-
-  @GetMapping("logout")
+  @GetMapping("logout") 
   public String logout(HttpSession session) throws Exception {
-    session.invalidate(); // 현재 세션을 무효화시킨다.
-    return "redirect:../../"; // 로그아웃 한 후 메인 페이지를 요청하라고 응답한다.
+    session.invalidate(); 
+    return "redirect:../../"; 
   }
 }
 

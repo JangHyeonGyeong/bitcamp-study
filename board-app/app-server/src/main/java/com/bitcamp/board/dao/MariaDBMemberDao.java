@@ -8,8 +8,7 @@ import javax.sql.DataSource;
 import org.springframework.stereotype.Repository;
 import com.bitcamp.board.domain.Member;
 
-
-@Repository
+@Repository // DAO 역할을 수행하는 객체에 붙이는 애노테이션
 public class MariaDBMemberDao implements MemberDao {
 
   DataSource ds;

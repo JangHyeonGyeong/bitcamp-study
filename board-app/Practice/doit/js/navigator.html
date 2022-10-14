@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Navigator</title>
+
+<script>
+// Navigator 객체의 속성을 출력 
+let output = '';
+output += 'appCodeName: ' + navigator.appCodeName+ '\n';
+output += 'appName: ' + navigator.appName+ '\n';
+output += 'appVersion: ' + navigator.appVersion + '\n';
+	output += 'platform: ' + navigator.platform + '\n';
+		output += 'userAgent: ' + navigator.userName + '\n';
+		alert(output);
+		
+//ios와 안드로이드 구분 
+if(navigator.userAgent.toLowerCase().indexOf('iphone') >= 0 
+	|| navigator.userAgent.toLowerCase().indexOf('android') >= 0 ) {
+	alert('모바일 웹 브라우저 입니다');
+} else {
+	alert('데스크 톱 브라우저 입니다');
+}
+
+</script>
+
+</head>
+<body>
+</body>
+</html>
