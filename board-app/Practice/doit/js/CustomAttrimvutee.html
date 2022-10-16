@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>웹 페이지</title>
+  <script>
+    // 이벤트 연결
+    window.onload = function (){
+      //  속성 지정
+document.body.setAttribute('data-custom', 'value');
+
+// 속성 추출
+      const dataCustom =document.body.getAttribute('data-custom');
+      alert(dataCustom);
+    };
+  </script>
+</head>
+<body>
+</body>
+</body>
+</html>

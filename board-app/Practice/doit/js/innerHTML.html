@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>웹 페이지</title>
+<script>
+  // 화면의 구성 완료
+window.onload = function (){
+  // h1 태그 내부의 문자 변경
+  const header = document.getElementById('header');
+  const originalText = header.innerHTML;
+  header.innerHTML = '<i> i 태그 입니다</i><br />';
+  header.innerHTML += '&lt;i&gt;i 태그 입니다&lt;/i&gt';
+
+};
+</script>
+</head>
+<body>
+<h1 id="header">Header - 1</h1>
+</body>
+</html>

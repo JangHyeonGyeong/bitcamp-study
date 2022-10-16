@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery Event</title>
+  <script src="jquery-3.6.1.min.js"></script>
+  <script>
+    // 웹 페이지를 모두 불러오려면
+    $(document).ready(function () {
+      //h1태그를 모두 추출하고 반복을 돌린다
+      $('h1').each(function (index, element) {
+        //특정 위치에서
+        if(index % 2 ==1 ){
+          // 배경 색상 적용
+          $(this).css('backgroundColor','red');
+        }
+      });
+ });
+  </script>
+</head>
+<body>
+<h1>HeaderA</h1>
+<h1>HeaderB</h1>
+<h1>HeaderC</h1>
+<h1>HeaderD</h1>
+
+</body>
+</html>

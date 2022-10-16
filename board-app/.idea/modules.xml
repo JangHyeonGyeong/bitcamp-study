@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Practice/Practice.iml" filepath="$PROJECT_DIR$/Practice/Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-client/board-app-client.iml" filepath="$PROJECT_DIR$/app-client/board-app-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-common/board-app-common.iml" filepath="$PROJECT_DIR$/app-common/board-app-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-server/board-app-server.iml" filepath="$PROJECT_DIR$/app-server/board-app-server.iml" />
+    </modules>
+  </component>
+</project>

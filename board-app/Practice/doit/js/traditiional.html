@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Inline Basic</title>
+<script>
+  //이벤트 연결
+  window.onload = function buttonClick(){
+const button = document.getElementById('button');
+
+//이벤트를 연결한다
+    button.onclick = function (){
+      alert('click');
+    };
+  };
+</script>
+</head>
+<body>
+<button id ="button">버튼</button>
+</body>
+</html>

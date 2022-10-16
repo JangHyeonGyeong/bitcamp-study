@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BOM Basic</title>
+
+<script>
+  //화면 구성이 완료되면
+window.onload = function (){
+
+  //문서 객체를 선택
+  const headers = document.querySelectorAll('h1');
+  for(let i = 0; i< headers.length; i++); {
+    //변수 선언
+    const header = headers[i];
+
+    //문서 객체를 조작
+    header.style.color= 'orange';
+    header.style.background = 'red';
+    header.innerHTML = 'Form JavaScript' ;
+  }
+};
+</script>
+</head>
+<body>
+<h1>Header</h1>
+<h1>Header</h1>
+<h1>Header</h1>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/board-app/Practice/Practice.iml" filepath="$PROJECT_DIR$/board-app/Practice/Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/board-app/app/board-app.iml" filepath="$PROJECT_DIR$/board-app/app/board-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/board-app/app-client/board-app-client.iml" filepath="$PROJECT_DIR$/board-app/app-client/board-app-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/board-app/app-common/board-app-common.iml" filepath="$PROJECT_DIR$/board-app/app-common/board-app-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/board-app/app-server/board-app-server.iml" filepath="$PROJECT_DIR$/board-app/app-server/board-app-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-lang/app/연습/board_Test.iml" filepath="$PROJECT_DIR$/java-lang/app/연습/board_Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-lang/app/eomcs-java-lang.iml" filepath="$PROJECT_DIR$/java-lang/app/eomcs-java-lang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eomcs-servlet/app/eomcs-servlet.iml" filepath="$PROJECT_DIR$/eomcs-servlet/app/eomcs-servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eomcs-spring-webmvc/eomcs-spring-webmvc.iml" filepath="$PROJECT_DIR$/eomcs-spring-webmvc/eomcs-spring-webmvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eomcs-web/app/eomcs-web.iml" filepath="$PROJECT_DIR$/eomcs-web/app/eomcs-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rocspaper/rocspaper.iml" filepath="$PROJECT_DIR$/rocspaper/rocspaper.iml" />
+    </modules>
+  </component>
+</project>

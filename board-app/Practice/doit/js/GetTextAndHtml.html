@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+<meta charset="UTF-8">
+<title>JQuery Text</title>
+  <script src="jquery-3.6.1.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      // text()메소드와 html()메소드의 리턴 값을 출력
+   alert($('p').text());
+   alert($('p').html());
+ });
+  </script>
+</head>
+<body>
+<p>TestA</p>
+<p>TestB</p>
+<p>TestC</p>
+
+
+</body>
+</html>
+
+
+//h1 태그 내부의 문자를 설정한다
+$('h1').text('안녕')
+
+//h1 태그 내부의 문자를 설정한다
+$('h1').html('안녕')

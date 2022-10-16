@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>웹 페이지</title>
+<script>
+  // 이벤트 연결
+window.onload = function (){
+  // 변수 선언
+  const image = document.getElementById('image');
+
+  // 속성변경
+
+let output = '';
+for(let i =0; i<256; i++){
+  output += '<div></div>';
+}
+document.body.innerHTML = output;
+
+// 문서 객체 선택
+const divs = document.querySelectorAll('div');
+for(let i = 0 ; i<divs.length; i++){
+  // 변수 선언
+  const div =divs[i];
+
+  //스타일 적용
+  div.style.height ='2px';
+  div.style.background = 'rgb(' + i + ',' + i + ',' + i + ')';
+}
+ };
+</script>
+</head>
+<body>
+</body>
+</html>
