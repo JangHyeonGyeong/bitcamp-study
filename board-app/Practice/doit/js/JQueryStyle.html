@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery Basic</title>
+  <script src="jquery-3.6.1.min.js"></script>
+  <script>
+    // 웹 페이지를 모두 불러오려면
+    $(document).ready(function (){
+      //0부터 255까지 반복문을 돌리고
+      for(let i =0; i<256; i++){
+        // div 태그에 스타일을 적용해 body 태그에 추가
+        $('<div></div>').css({
+          height: 2,
+          background: 'rgb(' + i +',' + i + ',' + i  + ')'
+        }).appendTo('body');
+      }
+    })
+
+
+  </script>
+</head>
+<body>
+</body>
+</html>
+
+
+// img 태그의 src 속성을 가져온다
+$('img').attr('src')
+
+// img 태그의 src 속성을 'https://via.placeholder.com/100x100'으로 설정한다
+$('img').attr('src', 'https://via.placeholder.com/100x100')
+
+// img 태그의 src 속성과 alt 속성을 한번에 지정한다
+$('img').attr({
+src: 'https://via.placeholder.com/100x100',
+alt: 'placehold.it'
+})

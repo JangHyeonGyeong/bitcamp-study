@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery Attribute</title>
+  <script src="jquery-3.6.1.min.js"></script>
+  <script>
+    // 웹 페이지를 모두 불러오려면
+    $(document).ready(function (){
+      // img 태그에
+      $('img').each(function (index, element){
+        //src 속성을 조작
+        $(this).attr('src',
+        'https://via.placeholder.com/' + (index + 1) * 100 + 'x100');
+
+      } );
+
+    });
+
+    $('<h1></h1>')
+      .text('안녕')
+      .attr('data-test', 'test')
+      .css({
+        backgroundColor: 'red',
+        color: 'white'
+      });
+
+
+  </script>
+</head>
+<body>
+</body>
+</html>
+

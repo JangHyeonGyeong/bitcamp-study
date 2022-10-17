@@ -30,6 +30,7 @@ public class BoardController {
   BoardService boardService;
 
   public BoardController(BoardService boardService, ServletContext sc) {
+    System.out.println("BoardController() 호출됨!");
     this.boardService = boardService;
     this.sc = sc;
   }
