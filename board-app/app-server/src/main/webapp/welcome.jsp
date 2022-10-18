@@ -16,7 +16,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" /> 
-
+      <link href="js/scripts.js" rel="stylesheet" /> 
 </head>
 <body id="page-top">
 
@@ -29,7 +29,7 @@
                 data-bs-target="#navbarResponsive" 
                 aria-controls="navbarResponsive" 
                 aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
+                    상단바
                     <i class="fas fa-bars"></i>
                 </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">

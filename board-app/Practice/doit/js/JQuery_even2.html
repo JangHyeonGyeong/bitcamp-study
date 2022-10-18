@@ -7,18 +7,23 @@
   <script>
     // 웹 페이지를 모두 불러오려면
     $(document).ready(function () {
-   // h1 태그에 click 이벤트 연결
-          $('h1').on('click', function (event){
-            // h1 태그를 생성해서 body태그에 추가
-            $('<h1></h1>').text($(this).text()).appendTo('body');
-
-          })
+   // 짝수 위치에 h1 태그에 배경 색상을 적용
+          $('h1:even').css('backgroundColor','red');
         });
 
   </script>
 </head>
 <body>
 <h1>HeaderA</h1>
+<h1>HeaderB</h1>
+<h1>HeaderC</h1>
+<h1>HeaderD</h1>
 
 </body>
 </html>
+
+// h1 태그 내부의 문자를 가져온다
+$('h1').text()
+
+//h1 태그 내부의 문자를 가져온다
+$('h1').html()

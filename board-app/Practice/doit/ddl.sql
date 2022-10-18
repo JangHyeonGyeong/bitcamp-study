@@ -7,5 +7,16 @@ from jang_member
 join jang_alarm
 on jang_member.ID=jang_alarm.ID;
 
--- 장소 추천 게시글 메인
+-- 장바구니
+
+-- 결제확인 페이지
+
+
+-- 주문결제 페이지
+
+-- 구매내역 페이지
+
+
+
 select jang_so_recommendation.title,
+
