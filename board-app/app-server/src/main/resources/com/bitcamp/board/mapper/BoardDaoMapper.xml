@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="BoardDao">
+<mapper namespace="com.bitcamp.board.dao.BoardDao">
 
   <resultMap type="board" id="boardMap">
     <id column="bno" property="no"/>
@@ -47,23 +47,7 @@
       bno desc
   </select>
   
-  <select id="findByNo" resultMap="boardMap">
-    select
-      b.bno,
-      b.title,
-      b.cont,
-      b.cdt,
-      b.vw_cnt,
-      m.mno,
-      m.name
-    from 
-      app_board b
-      join app_member m on b.mno = m.mno
-    where 
-      b.bno=#{value}
-  </select>
-  
-    <select id="findByNo3" resultMap="boardMap">
+    <select id="findByNo" resultMap="boardMap">
     select
       b.bno,
       b.title,
@@ -81,6 +65,7 @@
     where 
       b.bno=#{value}
   </select>
+  
   
   <select id="findFilesByBoard" resultMap="attachedFileMap">
     select 
@@ -128,6 +113,12 @@
     delete from app_board_file 
     where bno=#{value}
   </delete>
+  
+    <delete id="deleteFilesByMemberBoards"> <!-- 게시글들의 첨부파일 전부삭제  -->
+    delete from app_board_file 
+    where bno in (select bno from app_board where mno = #{value})
+  </delete>
+  
   
   <delete id="deleteFile">
     delete from app_board_file 

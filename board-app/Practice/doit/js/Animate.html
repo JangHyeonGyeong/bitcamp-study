@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery Event</title>
+ <style>
+   .box {
+     /* 크기*/
+     width: 100px; height: 100px;
+     /* 색상*/
+     background-color: red;
+     /* 위치*/
+     position: absolute;
+     left: 10px; top: 10px;
+   }
+
+ </style>
+  <script src="jquery-3.6.1.min.js"></script>
+  <script>
+    // 웹 페이지를 모두 불러오려면
+    $(document).ready(function () {
+      //box 태그를 클릭해서
+      $('.box').click(function () {
+        //1초 동안 left를 1000픽셀로 변경한다
+        $(this).animate({
+          left: 1000
+        }, 1000);
+      })
+    });
+
+  </script>
+</head>
+<body>
+<dib class="box">박스</dib>
+
+</body>
+</html>

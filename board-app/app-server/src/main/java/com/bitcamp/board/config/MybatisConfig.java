@@ -4,9 +4,19 @@ import javax.sql.DataSource;
 import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+
+//mybatis가 자동으로 생성할  DAO 인터페이스를 지정한다 
+// - mybatis는 매퍼 파일과 인터페이스를 분석하여 DAO 구현체를 자동 생성한다 
+// 조건 : 
+// 1) namespace 의 값은 Dao 인터페이스의 이름(fully-qualified name)이어야 한다.
+// 2) SQL ID는 인터페이스에 선언된 메서드 이름과 일치해야 한다.
+// 3) SQL의 파라미터 타입도 메서드의 파라미터 타입과 일치해야 한다.
+// 
+@MapperScan("com.bitcamp.board.dao")
 public class MybatisConfig {
 
   public MybatisConfig() {

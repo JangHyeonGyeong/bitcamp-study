@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery Event</title>
+  <script src="jquery-3.6.1.min.js"></script>
+  <script>
+    // 웹 페이지를 모두 불러오려면
+    $(document).ready(function () {
+const handler = function (event) {
+  //h1 태그를 생성해서 body 태그에 추가한다
+  $('<h1></h1>')
+    .text($(this).text())
+    .on('click', handler)
+    .appendTo('body');
+
+    // 현재 태그의 이벤트를 제거한다
+     $(this).off();
+    };
+    //h1 태그를 클릭하면
+      $('h1').on('click',handler);
+    });
+
+  </script>
+</head>
+<body>
+<h1>Header</h1>
+
+</body>
+</html>
+
+//h1 태그의 모든 이벤트를 제거
+$('h1').off();
+
+// h1 태그의 click 이벤트를 모두 제거
+$('h1').off('click');
+
+// h1 태그의 click 이벤트로 연결한 콜백 함수 중 특정한 콜백 함수만 제거한다
+$('h1').off('click',handler);
+

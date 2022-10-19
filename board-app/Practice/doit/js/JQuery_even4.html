@@ -7,22 +7,20 @@
   <script>
     // 웹 페이지를 모두 불러오려면
     $(document).ready(function () {
-   // 변수를 선언
-         const handler = function (event){
-           //h1 태그를 생성해서 body 태그에 추가한다
-           $('<h1></h1>')
-             .text($(this).text())
-             .on('click',handler)
-             .appendTo('body');
-         };
-         //h1 태그에 click이벤트를 연결한다
-         $('h1').on('click',handler);
+   //  body 태그에 h1태그의 click 이벤트를 위임한다
+      $('body').on('click','h1', function (event){
+        //h1 태그를 생성해서 body 태그에 추가한다
+        $('<h1></h1>')
+          .text($(this).text())
+          .on('click',handler)
+          .appendTo('body');
+      });
         });
 
   </script>
 </head>
 <body>
-<h1>HeaderA</h1>
+<h1>Header</h1>
 
 </body>
 </html>
