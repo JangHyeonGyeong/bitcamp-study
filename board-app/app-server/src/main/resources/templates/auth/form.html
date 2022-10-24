@@ -3,27 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <title>bitcamp</title>
+
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+      <!-- Font online-->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    
+<!--        Animate.css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+              
+                              
+      <link rel="stylesheet" href="../css/Login.css" >
+      
+      <!-- Google JQuery CDN -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="../js/jquery.min.js"></script>
+      <script src="../js/login.js"></script>
+
+
 </head>
 <body>
-<h1>로그인</h1>
+
+<div id="login-button">
+  <img src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png">
+</div>
+
+<div id="container">
+<h1>login</h1>
+ 
+  <span class="close-btn">
+    <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+  </span>
 
 <form action='login' method="post">
+
 <table border='1'>
+
+
+
   <tr>
-    <th>이메일</th><td><input name='email' type='email' size='30' 
-    value='hong@test.com'
-    data-th-value="${email}"></td>
+ <!--    <th>이메일</th>  -->
+ <td><input name='email' type='email' size='30' placeholder="E-mail"
+        value="hong@test.com"
+        data-th-value="${email}"></td>
   </tr>
   <tr>
-    <th>암호</th><td><input name='password' type='password' size='20'></td>
+   <!--  <th>암호</th>-->
+   <td><input name='password' type='password' size='20' ></td>
   </tr>
 </table>
-<input type="checkbox" name="saveEmail">이메일 저장<br>
-<p>
+
+
+
+<input type="checkbox" name="saveEmail" >이메일 저장
   <button type='submit'>로그인</button>
+<p>
   <a href='../'>취소</a>
 </p>
 </form>
+</div>
 
+<!-- Forgotten Password Container -->
+<div id="forgotten-container">
+   <h1>Forgotten</h1>
+  <span class="close-btn">
+    <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+  </span>
+
+  <form>
+    <input type="email" name="email" placeholder="E-mail">
+    <a href="#" class="orange-btn">Get new password</a>
+</form>
+</div>
+
+<script src="../js/login.js"></script>
 </body>
 </html>

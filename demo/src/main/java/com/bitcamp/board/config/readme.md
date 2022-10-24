@@ -1,0 +1,1 @@
+Spring Security에 필요한 설정 파일이 존재한다.
