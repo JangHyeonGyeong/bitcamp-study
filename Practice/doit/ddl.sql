@@ -318,3 +318,17 @@ WHERE AND(jang_member.ID = 'user1');
 -- w
 
 , jang_member.PWD = '');
+
+    -- ------
+select
+    ID,
+    NNAME,
+    SIDATE,
+    PROFILE,
+    NAME,
+    EMAIL,
+    STATUS
+from
+    jang_member
+where
+        ID='user1';

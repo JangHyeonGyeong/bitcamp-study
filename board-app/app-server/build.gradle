@@ -2,7 +2,8 @@ plugins {
        id 'org.springframework.boot' version '2.7.4'
        id 'io.spring.dependency-management' version '1.0.14.RELEASE'
        id 'java'
-       id 'eclipse' 
+       id 'eclipse'
+       id 'application' 
 }
 
 repositories {
@@ -31,7 +32,12 @@ dependencies {
      implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
 
      // mariadb jdbc driver 관련 라이브러리 
-     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+    // runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+    
+    
+    //mysql 관련 라이브러리 
+    implementation 'mysql:mysql-connector-java:8.0.31'
+    
      
      // 개발 편의성을 제공하는 라이브러리 => 개발 완료 후 제거한다.
      developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -90,6 +96,9 @@ eclipse {
     }
 }
 
+application {
+    mainClass = 'com.bitcamp.board.App'
+}
 
 
 

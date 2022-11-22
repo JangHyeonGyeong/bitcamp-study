@@ -55,7 +55,6 @@ public class BoardController {
 
     board.setAttachedFiles(saveAttachedFiles(files));
     board.setWriter((Member) session.getAttribute("loginMember"));
-
     boardService.add(board);
     return "redirect:list";
   }
@@ -77,10 +76,13 @@ public class BoardController {
     return attachedFiles;
   }
 
+
   private List<AttachedFile> saveAttachedFiles(MultipartFile[] files)
       throws IOException, ServletException {
     List<AttachedFile> attachedFiles = new ArrayList<>();
     String dirPath = sc.getRealPath("/board/files");
+
+    System.out.println("호출:" + dirPath);
 
     for (MultipartFile part : files) {
       if (part.isEmpty()) {
@@ -93,6 +95,8 @@ public class BoardController {
     }
     return attachedFiles;
   }
+
+
 
   @GetMapping("list")
   public void list(Model model) throws Exception {
